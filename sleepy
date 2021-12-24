@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+#alias sleepy='screen mpv rtsp://sleepy:Abort12@192.168.1.126/stream2 &'
+
+while [ true ]
+
+do 
+	ping -c 1  192.168.1.126 &>2
+
+	if [ $? -ne 0  ]
+	then 
+		screen mpv rtsp://sleepy:Abort12@192.168.1.125/stream2 &
+exit 0		
+	else
+screen mpv rtsp://sleepy:Abort12@192.168.1.126/stream2 &
+exit 0
+	fi
+
+done
+
